@@ -1,5 +1,5 @@
-{/* import { NextResponse } from "next/server";
-import { extractGradeParameters } from "@/lib/gemini";
+import { NextResponse } from "next/server";
+//import { extractGradeParameters } from "@/lib/gemini";
 
 export async function POST(request: Request) {
   try {
@@ -14,9 +14,9 @@ export async function POST(request: Request) {
     }
 
     const text = await file.text();
-    const parameters = await extractGradeParameters(text);
+    //const parameters = await extractGradeParameters(text);
 
-    return NextResponse.json({ parameters });
+    //return NextResponse.json({ parameters });
   } catch (error) {
     console.error("Error processing syllabus:", error);
     return NextResponse.json(
@@ -25,4 +25,3 @@ export async function POST(request: Request) {
     );
   }
 }
-*/}
