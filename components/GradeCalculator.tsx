@@ -90,7 +90,8 @@ export function GradeCalculator() {
           )}
         </div>
       </Card>
-
+          
+      <p> Coming Soon! WIP</p>
       {step === 1 && (
         <SyllabusUpload 
           onUpload={(extractedParameters) => {
