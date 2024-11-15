@@ -1,6 +1,6 @@
 //import { NextResponse } from "next/server";
 //import { extractGradeParameters } from "../../../lib/gemini";
-
+{/*
 export async function POST(request: Request) {
   try {
     const formData = await request.formData();
@@ -24,3 +24,4 @@ export async function POST(request: Request) {
     );
   }
 }
+/*}
