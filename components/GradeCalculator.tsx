@@ -6,7 +6,7 @@ import { Steps } from "@/components/Steps";
 import { ParameterInput } from "@/components/ParameterInput";
 import { DetailsInput } from "@/components/DetailsInput";
 import { GradeOutput } from "@/components/GradeOutput";
-import { SyllabusUpload } from "@/components/SyllabusUpload";
+//import { SyllabusUpload } from "@/components/SyllabusUpload";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft } from "lucide-react";
 
@@ -90,16 +90,16 @@ export function GradeCalculator() {
           )}
         </div>
       </Card>
-          
-      <p> Coming Soon! WIP</p>
+      {/*
       {step === 1 && (
-        <SyllabusUpload 
-          onUpload={(extractedParameters) => {
-            setParameters(extractedParameters);
-            setStep(2);
-          }}
-        />
+        // <SyllabusUpload 
+        //   onUpload={(extractedParameters) => {
+        //     setParameters(extractedParameters);
+        //     setStep(2);
+        //   }}
+        // />
       )}
+        */}
     </div>
   );
 }

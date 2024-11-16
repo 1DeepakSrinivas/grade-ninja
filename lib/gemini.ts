@@ -1,3 +1,4 @@
+{/*
   import { GoogleGenerativeAI } from "@google/generative-ai";
 
   const genAI = new GoogleGenerativeAI(process.env.NEXT_PUBLIC_GEMINI_API_KEY || "");
@@ -33,7 +34,7 @@
       `;
   
       const result = await model.generateContent(prompt);
-      const responseText = result.responses[0].text;
+      const responseText = result.response.text;
   
       if (!responseText) {
         console.error("No response from the Gemini model.");
@@ -53,4 +54,4 @@
     }
   }
   
-  
+*/}
