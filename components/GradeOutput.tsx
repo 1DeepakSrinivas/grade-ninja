@@ -1,11 +1,11 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Card } from "@/components/ui/card";
-import { RefreshCw } from "lucide-react";
+import { RefreshCw } from 'lucide-react';
 import type { Parameter } from "./GradeCalculator";
 
 interface GradeOutputProps {
@@ -32,7 +32,7 @@ export function GradeOutput({ parameters, onReset }: GradeOutputProps) {
     { min: 0, grade: 'F' },
   ]);
 
-  const calculateFinalGrade = () => {
+  const calculateFinalGrade = useMemo(() => {
     let totalWeight = 0;
     let weightedSum = 0;
 
@@ -44,7 +44,7 @@ export function GradeOutput({ parameters, onReset }: GradeOutputProps) {
     });
 
     return totalWeight === 100 ? weightedSum : 0;
-  };
+  }, [parameters, grades]);
 
   const getLetterGrade = (score: number) => {
     const grade = letterGrades.find((g) => score >= g.min);
@@ -60,7 +60,7 @@ export function GradeOutput({ parameters, onReset }: GradeOutputProps) {
     setGrades(newGrades);
   };
 
-  const finalGrade = calculateFinalGrade();
+  const finalGrade = calculateFinalGrade;
   const letterGrade = getLetterGrade(finalGrade);
 
   return (
@@ -111,18 +111,15 @@ export function GradeOutput({ parameters, onReset }: GradeOutputProps) {
       <Card className="p-6">
         <div className="text-center space-y-4">
           <h2 className="text-2xl font-bold">Final Grade</h2>
-          <div className="space-y-2">
-            <p className="text-6xl font-bold text-primary">
-              {finalGrade.toFixed(1)}%
-            </p>
-            <p className="text-3xl font-semibold text-primary/80">{letterGrade}</p>
-          </div>
-          <Button variant="outline" onClick={onReset} className="mt-4">
-            <RefreshCw className="h-4 w-4 mr-2" />
-            Calculate Another
+          <div className="text-4xl font-bold">{finalGrade.toFixed(2)}%</div>
+          <div className="text-3xl font-semibold">Letter Grade: {letterGrade}</div>
+          <Button onClick={onReset} className="mt-4">
+            <RefreshCw className="w-4 h-4 mr-2" />
+            Start Over
           </Button>
         </div>
       </Card>
     </div>
   );
 }
+

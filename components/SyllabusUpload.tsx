@@ -1,11 +1,11 @@
-{/* "use client";
+"use client";
 
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Upload } from "lucide-react";
+import { Upload } from 'lucide-react';
 import { Alert, AlertDescription } from "@/components/ui/alert";
-import { AlertCircle } from "lucide-react";
+import { AlertCircle } from 'lucide-react';
 import type { Parameter } from "./GradeCalculator";
 
 interface SyllabusUploadProps {
@@ -87,4 +87,4 @@ export function SyllabusUpload({ onUpload }: SyllabusUploadProps) {
     </Card>
   );
 }
-  */}
+

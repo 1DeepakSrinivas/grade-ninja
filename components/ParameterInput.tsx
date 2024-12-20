@@ -10,7 +10,7 @@ interface ParameterInputProps {
 }
 
 export function ParameterInput({ onSubmit }: ParameterInputProps) {
-  const [count, setCount] = useState(3);
+  const [count, setCount] = useState(0);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();

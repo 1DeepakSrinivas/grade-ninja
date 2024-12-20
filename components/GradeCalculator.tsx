@@ -6,9 +6,9 @@ import { Steps } from "@/components/Steps";
 import { ParameterInput } from "@/components/ParameterInput";
 import { DetailsInput } from "@/components/DetailsInput";
 import { GradeOutput } from "@/components/GradeOutput";
-//import { SyllabusUpload } from "@/components/SyllabusUpload";
+import { SyllabusUpload } from "@/components/SyllabusUpload";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft } from 'lucide-react';
 
 export type Parameter = {
   name: string;
@@ -46,6 +46,11 @@ export function GradeCalculator() {
     setParameters([]);
   };
 
+  const handleSyllabusUpload = (extractedParameters: Parameter[]) => {
+    setParameters(extractedParameters);
+    setStep(2);
+  };
+
   return (
     <div className="max-w-3xl mx-auto space-y-8">
       <div className="text-center space-y-4">
@@ -74,7 +79,10 @@ export function GradeCalculator() {
           )}
 
           {step === 1 && (
-            <ParameterInput onSubmit={handleParametersSubmit} />
+            <>
+              <ParameterInput onSubmit={handleParametersSubmit} />
+              <SyllabusUpload onUpload={handleSyllabusUpload} />
+            </>
           )}
           {step === 2 && (
             <DetailsInput 
@@ -90,16 +98,7 @@ export function GradeCalculator() {
           )}
         </div>
       </Card>
-      {/*
-      {step === 1 && (
-        // <SyllabusUpload 
-        //   onUpload={(extractedParameters) => {
-        //     setParameters(extractedParameters);
-        //     setStep(2);
-        //   }}
-        // />
-      )}
-        */}
     </div>
   );
 }
+
